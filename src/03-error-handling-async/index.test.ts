@@ -40,7 +40,5 @@ describe('rejectCustomError', () => {
       expect(err).toBeInstanceOf(MyAwesomeError);
       expect(err).toHaveProperty('message', 'This is my awesome custom error!');
     }
-
-    //expect(await rejectCustomError()).toBe('This is my awesome custom error!');
   });
 });

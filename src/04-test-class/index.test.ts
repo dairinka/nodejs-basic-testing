@@ -61,9 +61,7 @@ describe('BankAccount', () => {
   test('should throw SynchronizationFailedError if fetchBalance returned null', async () => {
     try {
       await newBankAcount.synchronizeBalance();
-      console.log('No error');
     } catch (err) {
-      console.log('Have error');
       expect(err).toBeInstanceOf(SynchronizationFailedError);
     }
   });
