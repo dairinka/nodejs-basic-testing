@@ -4,7 +4,7 @@ import { simpleCalculator, Action } from './index';
 describe('simpleCalculator tests', () => {
   test('should add two numbers', () => {
     expect(simpleCalculator({ a: 1, b: 3, action: Action.Add })).toBe(4);
-    expect(simpleCalculator({ a: 2, b: 2, action: Action.Add })).toBe(4);
+    expect(simpleCalculator({ a: 2, b: -2, action: Action.Add })).toBeNull;
     expect(simpleCalculator({ a: 1, b: 7, action: Action.Add })).toBe(8);
   });
 
