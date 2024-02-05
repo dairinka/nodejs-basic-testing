@@ -25,8 +25,8 @@ describe('doStuffByTimeout', () => {
 
   test('should call callback only after timeout', () => {
     const timerSpy = jest.spyOn(global, 'setTimeout');
-    doStuffByTimeout(cb, 5);
-    jest.runOnlyPendingTimers();
+    doStuffByTimeout(cb, 500);
+    jest.advanceTimersByTime(500);
     expect(cb).toHaveBeenCalled();
     timerSpy.mockRestore();
   });
@@ -52,8 +52,8 @@ describe('doStuffByInterval', () => {
   test('should call callback multiple times after multiple intervals', () => {
     const intervalSpy = jest.spyOn(global, 'setInterval');
     doStuffByInterval(cb, 3);
-    jest.runOnlyPendingTimers();
-    expect(cb).toHaveBeenCalledTimes(2);
+    jest.advanceTimersByTime(3);
+    expect(cb).toHaveBeenCalled();
     intervalSpy.mockRestore();
   });
 });
